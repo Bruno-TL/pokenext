@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './home.module.css'
+import Card from '@/components/Card.js'
 
 async function getStaticProps() {
   const api = 'https://pokeapi.co/api/v2/pokemon'
@@ -21,7 +22,7 @@ export default async function Home() {
       </div>
       <div className={styles.pokemon_container}>
         {pokemons.map((pokemon) => (
-          <p key={pokemon.id}>{pokemon.name}</p>
+          <Card key={pokemon.id} pokemon={pokemon}/>
         ))}
       </div>
     </>
